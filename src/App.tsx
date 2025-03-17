@@ -1,16 +1,17 @@
-import Hero from './components/Hero'
-import ProductList from './components/ProductList'
-import Footer from './components/Footer'
+import { BrowserRouter } from 'react-router-dom'
+
 import { GlobalStyles } from './styles'
+
+import Footer from './container/Footer'
+import Paths from './routes'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyles />
-      <Hero />
-      <ProductList />
+      <Paths />
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
 
