@@ -1,58 +1,32 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import RestaurantProductList from '../../container/RestaurantProductList'
 import RestaurantProfile from '../../container/RestaurantProfile'
-import Product from '../../models/Product'
-import productImg from '../../assets/images/produto.png'
 
-const productRestaurant: Product[] = [
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: productImg,
-    id: 1
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: productImg,
-    id: 2
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: productImg,
-    id: 3
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: productImg,
-    id: 4
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: productImg,
-    id: 5
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: productImg,
-    id: 6
+import { Restaurant } from '../Home'
+
+const Profile = () => {
+  const { id } = useParams()
+
+  const [restaurant, setRestaurant] = useState<Restaurant>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setRestaurant(res))
+  }, [id])
+
+  if (!restaurant) {
+    return <h3>Carregando..</h3>
   }
-]
 
-const Profile = () => (
-  <>
-    <RestaurantProfile />
-    <RestaurantProductList products={productRestaurant} />
-  </>
-)
+  return (
+    <>
+      <RestaurantProfile restaurant={restaurant} />
+      <RestaurantProductList restaurant={restaurant} />
+    </>
+  )
+}
 
 export default Profile

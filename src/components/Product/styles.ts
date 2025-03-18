@@ -15,6 +15,14 @@ export const Card = styled.div<typeCard>`
   padding: ${(props) => (props.type === 'product' ? '8px' : 'none')};
   color: ${(props) =>
     props.type === 'product' ? `${colors.linkTextColor}` : 'none'};
+  max-width: 472px;
+
+  > img {
+    display: block;
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+  }
 
   ${TagContainer} {
     margin-left: 8px;
@@ -64,6 +72,7 @@ export const Description = styled.p<typeCard>`
 
 export const Button = styled.button<typeCard>`
   width: ${(props) => (props.type === 'product' ? '100%' : '')};
+  color: ${colors.mainColor};
   padding: 4px 6px;
   border: none;
   background-color: ${(props) =>
@@ -73,9 +82,7 @@ export const Button = styled.button<typeCard>`
   cursor: pointer;
 
   a {
-    color: ${(props) =>
-      props.type === 'product'
-        ? `${colors.mainColor}`
-        : `${colors.linkTextColor}`};
+    font-size: 14px;
+    color: ${colors.linkTextColor};
   }
 `

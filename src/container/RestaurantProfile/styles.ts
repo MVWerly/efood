@@ -30,6 +30,8 @@ export const Title = styled.h2`
   font-size: 32px;
   font-weight: 100;
   color: ${colors.white};
+  position: relative;
+  z-index: 1;
 `
 
 export const TitleBig = styled.h1`
@@ -37,4 +39,6 @@ export const TitleBig = styled.h1`
   font-size: 32px;
   font-weight: 900;
   color: ${colors.white};
+  position: relative;
+  z-index: 1;
 `

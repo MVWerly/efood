@@ -1,4 +1,11 @@
 import styled from 'styled-components'
+import { colors } from '../../styles'
+
+export const Footer = styled.footer`
+  > div {
+    background-color: ${colors.linkTextColor};
+  }
+`
 
 export const Container = styled.div`
   height: 100%;

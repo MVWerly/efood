@@ -3,14 +3,13 @@ import * as S from './styles'
 import Logo from '../../components/Logo'
 import BackgroundImage from '../../components/BackgroundImage'
 
-import backgroundImage from '../../assets/images/Vector.png'
 import instagramImg from '../../assets/images/instagram.png'
 import facebookImg from '../../assets/images/facebook.png'
 import twitterImg from '../../assets/images/twitter.png'
 
 const Footer = () => (
-  <footer>
-    <BackgroundImage padding="40" height="298" image={backgroundImage}>
+  <S.Footer>
+    <BackgroundImage padding="40" height="298">
       <S.Container className="container">
         <div>
           <Logo />
@@ -27,7 +26,7 @@ const Footer = () => (
         </p>
       </S.Container>
     </BackgroundImage>
-  </footer>
+  </S.Footer>
 )
 
 export default Footer
