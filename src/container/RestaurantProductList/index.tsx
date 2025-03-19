@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
 import Product from '../../components/Product'
@@ -6,7 +7,9 @@ import Product from '../../components/Product'
 import close from '../../assets/images/close.png'
 import { Restaurant } from '../../pages/Home'
 
-type Product = {
+import { add, open } from '../../store/reducers/cart'
+
+export type Product = {
   id: number
   nome: string
   foto: string
@@ -19,7 +22,16 @@ type Props = {
   restaurant: Restaurant
 }
 
+export const formatPrice = (price = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(price)
+}
+
 const RestaurantProductList = ({ restaurant }: Props) => {
+  const dispatch = useDispatch()
+
   const [modal, setModal] = useState(false)
   const [product, setProduct] = useState<Product>({
     id: 0,
@@ -35,11 +47,10 @@ const RestaurantProductList = ({ restaurant }: Props) => {
     setModal(true)
   }
 
-  const formatPrice = (price = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(price)
+  const addToCart = () => {
+    dispatch(add(product))
+    setModal(false)
+    dispatch(open())
   }
 
   return (
@@ -67,7 +78,7 @@ const RestaurantProductList = ({ restaurant }: Props) => {
             <h4>{product.nome}</h4>
             <p>{product.descricao}</p>
             <p>Serve: {product.porcao}</p>
-            <S.AddButton>
+            <S.AddButton onClick={addToCart}>
               Adicionar ao carrinho - {formatPrice(product.preco)}
             </S.AddButton>
           </S.DescriptionContainer>

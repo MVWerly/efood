@@ -82,4 +82,5 @@ export const AddButton = styled.button`
   color: ${colors.mainColor};
   background-color: ${colors.linkTextColor};
   border: none;
+  cursor: pointer;
 `

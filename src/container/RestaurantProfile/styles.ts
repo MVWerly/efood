@@ -24,6 +24,10 @@ export const Container = styled.div`
 export const TitleSmall = styled.h3`
   font-size: 18px;
   font-weight: 900;
+
+  span {
+    cursor: pointer;
+  }
 `
 
 export const Title = styled.h2`

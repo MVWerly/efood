@@ -15,8 +15,10 @@ export type Props = {
   id?: number
 }
 
-export function capitalizeFirstLetter(string: any) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+export function capitalizeFirstLetter(string: string | boolean) {
+  if (typeof string === 'string') {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
 }
 
 const Product = ({
