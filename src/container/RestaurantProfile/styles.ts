@@ -13,7 +13,10 @@ export const Container = styled.div`
   }
 
   :nth-child(2) {
-    text-align: center;
+    h1 {
+      line-height: 0;
+      text-align: center;
+    }
   }
 
   :nth-child(3) {

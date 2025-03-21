@@ -1,16 +1,16 @@
 import { useParams } from 'react-router-dom'
 
-import RestaurantProductList from '../../container/RestaurantProductList'
 import RestaurantProfile from '../../container/RestaurantProfile'
+import RestaurantProductList from '../../container/RestaurantProductList'
 
 import { useGetRestaurantProfileQuery } from '../../services/api'
 
-const Profile = () => {
-  const { id } = useParams()
+type RestaurantParams = {
+  id: string
+}
 
-  if (id === undefined) {
-    throw new Error('ID incorreto')
-  }
+const Profile = () => {
+  const { id } = useParams() as RestaurantParams
 
   const { data: restaurant } = useGetRestaurantProfileQuery(id)
 

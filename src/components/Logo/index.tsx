@@ -4,7 +4,9 @@ import { Image } from './styles'
 
 const Logo = () => (
   <Link to="/">
-    <Image src={logoImg} alt="Efood" />
+    <h1>
+      <Image src={logoImg} alt="Efood" />
+    </h1>
   </Link>
 )
 

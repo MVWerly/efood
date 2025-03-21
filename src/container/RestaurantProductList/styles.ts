@@ -35,7 +35,7 @@ export const Modal = styled.div`
 `
 
 export const ModalContent = styled.div`
-  background-color: ${colors.mainColor};
+  background-color: ${colors.salmonPink};
   padding: 32px;
   display: flex;
   justify-content: center;
@@ -79,8 +79,8 @@ export const AddButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   padding: 4px 6px;
-  color: ${colors.mainColor};
-  background-color: ${colors.linkTextColor};
+  color: ${colors.salmonPink};
+  background-color: ${colors.lightPeach};
   border: none;
   cursor: pointer;
 `

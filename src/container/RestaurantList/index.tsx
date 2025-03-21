@@ -1,6 +1,5 @@
-import Product from '../../components/Product'
+import RestaurantCard from '../../components/RestaurantCard'
 import { List } from './styles'
-import { Restaurant } from '../../pages/Home'
 
 type Props = {
   restaurants: Restaurant[]
@@ -26,8 +25,7 @@ const RestaurantList = ({ restaurants }: Props) => {
       <List>
         {restaurants.map((restaurant) => (
           <li key={restaurant.id}>
-            <Product
-              type="restaurant"
+            <RestaurantCard
               title={restaurant.titulo}
               grade={restaurant.avaliacao}
               description={restaurant.descricao}

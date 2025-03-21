@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
-  mainColor: '#E66767',
-  secondaryColor: '#FFF8F2',
-  linkTextColor: '#FFEBD9',
+  salmonPink: '#E66767',
+  alabasterWhite: '#FFF8F2',
+  lightPeach: '#FFEBD9',
   white: '#ffffff'
 }
 
@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${colors.secondaryColor};
-    color: ${colors.mainColor};
+    background-color: ${colors.alabasterWhite};
+    color: ${colors.salmonPink};
   }
 `

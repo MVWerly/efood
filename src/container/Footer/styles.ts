@@ -3,7 +3,11 @@ import { colors } from '../../styles'
 
 export const Footer = styled.footer`
   > div {
-    background-color: ${colors.linkTextColor};
+    background-color: ${colors.lightPeach};
+  }
+
+  h1 {
+    line-height: 0;
   }
 `
 

@@ -30,7 +30,7 @@ export const Overlay = styled.div`
 export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
-  background-color: ${colors.mainColor};
+  background-color: ${colors.salmonPink};
   padding: 32px 8px;
   z-index: 1;
 
@@ -39,14 +39,14 @@ export const Sidebar = styled.aside`
     overflow-y: scroll;
 
     &::-webkit-scrollbar-track {
-      background-color: ${colors.mainColor};
+      background-color: ${colors.salmonPink};
     }
     &::-webkit-scrollbar {
       width: 1px;
-      background: ${colors.mainColor};
+      background: ${colors.salmonPink};
     }
     &::-webkit-scrollbar-thumb {
-      background: ${colors.mainColor};
+      background: ${colors.salmonPink};
     }
   }
 
@@ -55,7 +55,7 @@ export const Sidebar = styled.aside`
     justify-content: space-between;
     font-size: 14px;
     font-weight: 700;
-    color: ${colors.linkTextColor};
+    color: ${colors.lightPeach};
     margin-top: 40px;
   }
 
@@ -68,13 +68,13 @@ export const Sidebar = styled.aside`
     padding: 4px 0;
     margin-top: 16px;
     border: none;
-    background-color: ${colors.linkTextColor};
-    color: ${colors.mainColor};
+    background-color: ${colors.lightPeach};
+    color: ${colors.salmonPink};
   }
 `
 
 export const CartItem = styled.li`
-  background-color: ${colors.linkTextColor};
+  background-color: ${colors.lightPeach};
   display: flex;
   padding: 8px;
   position: relative;

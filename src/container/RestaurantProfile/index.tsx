@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Restaurant } from '../../pages/Home'
 import { open } from '../../store/reducers/cart'
 
 import * as S from './styles'
@@ -9,7 +8,7 @@ import backgroundImg from '../../assets/images/Vector.png'
 
 import BackgroundImage from '../../components/BackgroundImage'
 import Logo from '../../components/Logo'
-import { capitalizeFirstLetter } from '../../components/Product'
+import { capitalizeFirstLetter } from '../../utils'
 import { RooReducer } from '../../store'
 
 type Props = {

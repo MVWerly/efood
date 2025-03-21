@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
 
 import * as S from './styles'
 
 import { RooReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-import { formatPrice } from '../../container/RestaurantProductList'
+import { formatPrice } from '../../utils'
+import Checkout from '../Checkout'
 
 const Cart = () => {
+  const [checkout, setCheckout] = useState(false)
   const dispatch = useDispatch()
 
   const { isOpen, products } = useSelector((state: RooReducer) => state.cart)
@@ -25,27 +28,50 @@ const Cart = () => {
   }
 
   return (
-    <S.CartContainer className={isOpen ? 'is-open' : ''}>
-      <S.Overlay onClick={closeCart} />
-      <S.Sidebar>
-        <ul>
-          {products.map((product) => (
-            <S.CartItem key={product.id}>
-              <img src={product.foto} />
-              <div>
-                <h3>{product.nome}</h3>
-                <p>{formatPrice(product.preco)}</p>
-              </div>
-              <button type="button" onClick={() => removeProduct(product.id)} />
-            </S.CartItem>
-          ))}
-        </ul>
-        <p>
-          Valor total <span>{formatPrice(getTotalPrice())}</span>
-        </p>
-        <button>Continuar com a entrega</button>
-      </S.Sidebar>
-    </S.CartContainer>
+    <>
+      {checkout ? (
+        <>
+          <S.CartContainer className={isOpen ? 'is-open' : ''}>
+            <S.Overlay />
+            <S.Sidebar>
+              <Checkout
+                startPaying={() => setCheckout(false)}
+                paymentFinalized={closeCart}
+              />
+            </S.Sidebar>
+          </S.CartContainer>
+        </>
+      ) : (
+        <>
+          <S.CartContainer className={isOpen ? 'is-open' : ''}>
+            <S.Overlay onClick={closeCart} />
+            <S.Sidebar>
+              <ul>
+                {products.map((product) => (
+                  <S.CartItem key={product.id}>
+                    <img src={product.foto} />
+                    <div>
+                      <h3>{product.nome}</h3>
+                      <p>{formatPrice(product.preco)}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => removeProduct(product.id)}
+                    />
+                  </S.CartItem>
+                ))}
+              </ul>
+              <p>
+                Valor total <span>{formatPrice(getTotalPrice())}</span>
+              </p>
+              <button onClick={() => setCheckout(true)}>
+                Continuar com a entrega
+              </button>
+            </S.Sidebar>
+          </S.CartContainer>
+        </>
+      )}
+    </>
   )
 }
 
