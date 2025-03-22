@@ -1,7 +1,9 @@
-import BackgroundImage from '../../components/BackgroundImage'
 import Logo from '../../components/Logo'
+import BackgroundImage from '../../components/BackgroundImage'
+
+import backgroundImg from '../../assets/images/background-vector.png'
+
 import * as S from './styles'
-import backgroundImg from '../../assets/images/Vector.png'
 
 const Hero = () => (
   <header>

@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { open } from '../../store/reducers/cart'
-
-import * as S from './styles'
-
-import backgroundImg from '../../assets/images/Vector.png'
-
 import BackgroundImage from '../../components/BackgroundImage'
 import Logo from '../../components/Logo'
-import { capitalizeFirstLetter } from '../../utils'
+
+import { open } from '../../store/reducers/cart'
 import { RooReducer } from '../../store'
+import { capitalizeFirstLetter } from '../../utils'
+
+import backgroundImg from '../../assets/images/background-vector.png'
+
+import * as S from './styles'
 
 type Props = {
   restaurant: Restaurant
@@ -29,7 +29,7 @@ const RestaurantProfile = ({ restaurant }: Props) => {
         <S.Container className="container">
           <S.TitleSmall>Restaurantes</S.TitleSmall>
           <Logo />
-          <S.TitleSmall onClick={openCart}>
+          <S.TitleSmall role="button" onClick={openCart}>
             {products.length} produto(s)<span> no carrinho</span>
           </S.TitleSmall>
         </S.Container>

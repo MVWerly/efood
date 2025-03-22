@@ -75,7 +75,6 @@ export const Description = styled.p`
 `
 
 export const Button = styled.button`
-  color: ${colors.salmonPink};
   padding: 4px 6px;
   border: none;
   background-color: ${colors.salmonPink};

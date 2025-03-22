@@ -4,9 +4,9 @@ export function capitalizeFirstLetter(string: string | boolean) {
   }
 }
 
-export const formatPrice = (price = 0) => {
+export const parseToBrl = (amount = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
-  }).format(price)
+  }).format(amount)
 }

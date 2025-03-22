@@ -4,6 +4,7 @@ import RestaurantProfile from '../../components/RestaurantProfile'
 import RestaurantProductList from '../../components/RestaurantProductList'
 
 import { useGetRestaurantProfileQuery } from '../../services/api'
+import Loader from '../../components/Loader'
 
 type RestaurantParams = {
   id: string
@@ -15,7 +16,7 @@ const Profile = () => {
   const { data: restaurant } = useGetRestaurantProfileQuery(id)
 
   if (!restaurant) {
-    return <h3>Carregando..</h3>
+    return <Loader />
   }
 
   return (

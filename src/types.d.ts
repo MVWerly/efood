@@ -42,3 +42,7 @@ declare type PurchasePayload = {
     }
   }
 }
+
+type PurchaseResponse = {
+  orderId: string
+}

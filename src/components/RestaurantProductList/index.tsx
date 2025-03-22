@@ -5,7 +5,7 @@ import ProductCard from '../../components/ProductCard'
 import close from '../../assets/images/close.png'
 
 import { add, open } from '../../store/reducers/cart'
-import { formatPrice } from '../../utils'
+import { parseToBrl } from '../../utils'
 
 import * as S from './styles'
 
@@ -35,16 +35,17 @@ const RestaurantProductList = ({ restaurant }: Props) => {
   return (
     <>
       <S.List className="container">
-        {restaurant.cardapio.map((product) => (
-          <li key={product.id}>
-            <ProductCard
-              title={product.nome}
-              description={product.descricao}
-              image={product.foto}
-              modalIsVisible={() => openModal(product)}
-            />
-          </li>
-        ))}
+        {restaurant &&
+          restaurant.cardapio.map((product) => (
+            <li key={product.id}>
+              <ProductCard
+                title={product.nome}
+                description={product.descricao}
+                image={product.foto}
+                modalIsVisible={() => openModal(product)}
+              />
+            </li>
+          ))}
       </S.List>
       {productModal && (
         <>
@@ -59,7 +60,7 @@ const RestaurantProductList = ({ restaurant }: Props) => {
                 <p>{productModal.descricao}</p>
                 <p>Serve: {productModal.porcao}</p>
                 <S.AddButton onClick={addToCart}>
-                  Adicionar ao carrinho - {formatPrice(productModal.preco)}
+                  Adicionar ao carrinho - {parseToBrl(productModal.preco)}
                 </S.AddButton>
               </S.DescriptionContainer>
             </S.ModalContent>

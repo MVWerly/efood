@@ -1,11 +1,14 @@
 import RestaurantCard from '../../components/RestaurantCard'
+import Loader from '../Loader'
+
 import { List } from './styles'
 
 type Props = {
-  restaurants: Restaurant[]
+  restaurants?: Restaurant[]
+  isLoading: boolean
 }
 
-const RestaurantList = ({ restaurants }: Props) => {
+const RestaurantList = ({ restaurants, isLoading }: Props) => {
   const getInfos = (restaurant: Restaurant) => {
     const infos = []
 
@@ -20,21 +23,26 @@ const RestaurantList = ({ restaurants }: Props) => {
     return infos
   }
 
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <div className="container">
       <List>
-        {restaurants.map((restaurant) => (
-          <li key={restaurant.id}>
-            <RestaurantCard
-              title={restaurant.titulo}
-              grade={restaurant.avaliacao}
-              description={restaurant.descricao}
-              image={restaurant.capa}
-              infos={getInfos(restaurant)}
-              id={restaurant.id}
-            />
-          </li>
-        ))}
+        {restaurants &&
+          restaurants.map((restaurant) => (
+            <li key={restaurant.id}>
+              <RestaurantCard
+                title={restaurant.titulo}
+                grade={restaurant.avaliacao}
+                description={restaurant.descricao}
+                image={restaurant.capa}
+                infos={getInfos(restaurant)}
+                id={restaurant.id}
+              />
+            </li>
+          ))}
       </List>
     </div>
   )

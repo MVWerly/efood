@@ -60,6 +60,11 @@ export const Sidebar = styled.aside`
     margin-top: 40px;
   }
 
+  .empty-text {
+    text-align: center;
+    font-size: 16px;
+  }
+
   button {
     cursor: pointer;
   }

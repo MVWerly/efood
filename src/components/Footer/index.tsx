@@ -1,11 +1,11 @@
-import * as S from './styles'
-
 import Logo from '../../components/Logo'
 import BackgroundImage from '../../components/BackgroundImage'
 
 import instagramImg from '../../assets/images/instagram.png'
 import facebookImg from '../../assets/images/facebook.png'
 import twitterImg from '../../assets/images/twitter.png'
+
+import * as S from './styles'
 
 const Footer = () => (
   <S.Footer>
@@ -14,9 +14,15 @@ const Footer = () => (
         <div>
           <Logo />
           <S.ImgContainer>
-            <img src={instagramImg} alt="Instagram" />
-            <img src={facebookImg} alt="Instagram" />
-            <img src={twitterImg} alt="Instagram" />
+            <a href="#">
+              <img src={instagramImg} alt="Instagram" />
+            </a>
+            <a href="#">
+              <img src={facebookImg} alt="Instagram" />
+            </a>
+            <a href="#">
+              <img src={twitterImg} alt="Instagram" />
+            </a>
           </S.ImgContainer>
         </div>
         <p>

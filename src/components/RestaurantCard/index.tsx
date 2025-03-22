@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
+
 import { TagContainer } from '../Tag/styles'
 
 import { capitalizeFirstLetter } from '../../utils'
 
-import starImg from '../../assets/images/estrela.png'
+import starImg from '../../assets/images/star.png'
 
 import * as S from './styles'
-import { Link } from 'react-router-dom'
 
 type Props = {
   title: string
