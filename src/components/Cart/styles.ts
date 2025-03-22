@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import trash from '../../assets/images/trash-can.png'
 
 export const CartContainer = styled.div`
@@ -33,6 +33,7 @@ export const Sidebar = styled.aside`
   background-color: ${colors.salmonPink};
   padding: 32px 8px;
   z-index: 1;
+  position: relative;
 
   ul {
     max-height: 85%;
@@ -70,6 +71,21 @@ export const Sidebar = styled.aside`
     border: none;
     background-color: ${colors.lightPeach};
     color: ${colors.salmonPink};
+  }
+
+  > img {
+    display: none;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    > img {
+      display: block;
+      width: 21px;
+      height: 21px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
   }
 `
 

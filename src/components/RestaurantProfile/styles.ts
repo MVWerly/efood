@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Container = styled.div`
   height: 100%;
@@ -21,6 +21,21 @@ export const Container = styled.div`
 
   :nth-child(3) {
     text-align: end;
+    cursor: pointer;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr 1fr;
+
+    > :nth-child(1) {
+      display: none;
+    }
+
+    > :nth-child(3) {
+      span {
+        display: none;
+      }
+    }
   }
 `
 
@@ -48,4 +63,8 @@ export const TitleBig = styled.h1`
   color: ${colors.white};
   position: relative;
   z-index: 1;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 130px;
+  }
 `

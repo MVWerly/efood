@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 
-import * as S from './styles'
+import Checkout from '../Checkout'
 
 import { RooReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { formatPrice } from '../../utils'
-import Checkout from '../Checkout'
+
+import closeIcon from '../../assets/images/close.png'
+
+import * as S from './styles'
 
 const Cart = () => {
   const [checkout, setCheckout] = useState(false)
@@ -35,8 +38,8 @@ const Cart = () => {
             <S.Overlay />
             <S.Sidebar>
               <Checkout
-                startPaying={() => setCheckout(false)}
-                paymentFinalized={closeCart}
+                backToCart={() => setCheckout(false)}
+                paymentFinalized={() => setCheckout(false)}
               />
             </S.Sidebar>
           </S.CartContainer>
@@ -46,6 +49,7 @@ const Cart = () => {
           <S.CartContainer className={isOpen ? 'is-open' : ''}>
             <S.Overlay onClick={closeCart} />
             <S.Sidebar>
+              <img src={closeIcon} onClick={closeCart} />
               <ul>
                 {products.map((product) => (
                   <S.CartItem key={product.id}>

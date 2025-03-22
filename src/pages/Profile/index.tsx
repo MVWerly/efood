@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 
-import RestaurantProfile from '../../container/RestaurantProfile'
-import RestaurantProductList from '../../container/RestaurantProductList'
+import RestaurantProfile from '../../components/RestaurantProfile'
+import RestaurantProductList from '../../components/RestaurantProductList'
 
 import { useGetRestaurantProfileQuery } from '../../services/api'
 

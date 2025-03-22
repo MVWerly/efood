@@ -30,7 +30,7 @@ const RestaurantProfile = ({ restaurant }: Props) => {
           <S.TitleSmall>Restaurantes</S.TitleSmall>
           <Logo />
           <S.TitleSmall onClick={openCart}>
-            <span>{products.length} produto(s) no carrinho</span>
+            {products.length} produto(s)<span> no carrinho</span>
           </S.TitleSmall>
         </S.Container>
       </BackgroundImage>

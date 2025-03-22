@@ -1,8 +1,12 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 type InputProps = {
   $column?: string
+}
+
+type ContainerProps = {
+  $isActive?: boolean
 }
 
 export const Title = styled.h3`
@@ -10,6 +14,10 @@ export const Title = styled.h3`
   font-weight: 700;
   margin-bottom: 16px;
   color: ${colors.lightPeach};
+`
+
+export const Container = styled.div<ContainerProps>`
+  display: ${(props) => (props.$isActive ? 'block' : 'none')};
 `
 
 export const InputGroup = styled.div`
@@ -24,10 +32,15 @@ export const InputGroup = styled.div`
   }
 
   input {
-    padding: 8px;
+    padding: 6px;
     width: 100%;
     border: none;
     background-color: ${colors.lightPeach};
+    border: 2px solid ${colors.lightPeach};
+
+    &.error {
+      border-color: red;
+    }
   }
 `
 
@@ -45,6 +58,11 @@ export const Row = styled.div<InputProps>`
     line-height: 22px;
     color: ${colors.lightPeach};
     margin-bottom: 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 55% auto;
+    column-gap: 10px;
   }
 `
 

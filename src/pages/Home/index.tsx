@@ -1,5 +1,5 @@
-import Hero from '../../container/Hero'
-import RestaurantList from '../../container/RestaurantList'
+import Hero from '../../components/Hero'
+import RestaurantList from '../../components/RestaurantList'
 
 import { useGetRestaurantQuery } from '../../services/api'
 

@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { GlobalStyles } from './styles'
 
-import Footer from './container/Footer'
+import Footer from './components/Footer'
 import Paths from './routes'
 import { store } from './store'
 import Cart from './components/Cart'

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const List = styled.ul`
   display: grid;
@@ -7,6 +7,16 @@ export const List = styled.ul`
   gap: 32px;
   padding-top: 56px;
   padding-bottom: 120px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 export const Modal = styled.div`
@@ -57,6 +67,19 @@ export const ModalContent = styled.div`
     height: 280px;
     object-fit: cover;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+
+    > div {
+      margin-bottom: 8px;
+    }
+
+    div > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `
 
 export const DescriptionContainer = styled.div`
@@ -72,6 +95,10 @@ export const DescriptionContainer = styled.div`
     margin: 16px 0;
     font-size: 14px;
     line-height: 22px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-left: 0;
   }
 `
 
